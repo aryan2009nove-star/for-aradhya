@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For Aradhya ❤️</title>
+  <meta charset="UTF-8">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff5f6d, #ffc371);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial;
+      overflow: hidden;
+      color: white;
+      text-align: center;
+    }
+
+    .box {
+      background: rgba(0,0,0,0.4);
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 350px;
+      animation: fade 2s ease;
+    }
+
+    h1 {
+      font-size: 2.5em;
+    }
+
+    p {
+      font-size: 1.2em;
+    }
+
+    button {
+      background: #ff3366;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 22px;
+      animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+      from { transform: translateY(100vh); }
+      to { transform: translateY(-10vh); }
+    }
+
+    @keyframes fade {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🎵 Music -->
+  <audio autoplay loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="box">
+    <h1>❤️ Aradhya ❤️</h1>
+    <p>
+      You are the reason my heart smiles 😊<br>
+      I like you more than words can say.
+    </p>
+    <p>
+      Will you be mine? 💍
+    </p>
+    <button onclick="alert('I love you Aradhya ❤️')">
+      Click Me 💖
+    </button>
+  </div>
+
+  <script>
+    function heart() {
+      let h = document.createElement("div");
+      h.className = "heart";
+      h.innerHTML = "❤️";
+      h.style.left = Math.random() * 100 + "vw";
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), 6000);
+    }
+    setInterval(heart, 300);
+  </script>
+
+</body>
+</html>
