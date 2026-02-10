@@ -9,27 +9,27 @@
     height: 100vh;
     margin: 0;
     overflow: hidden;
-    background: radial-gradient(#2b1b1b, #000);
+    background: radial-gradient(#3a1f1f, #000);
     font-family: 'Comic Sans MS', 'Segoe UI', cursive;
   }
 
-  /* POP-UP TEXT */
+  /* TOP POP TEXT */
   .popup {
     position: fixed;
-    top: 12%;
+    top: 10%;
     width: 100%;
     text-align: center;
-    font-size: 52px;
-    color: #ff9ecf;
+    font-size: 54px;
+    color: #ffb3d9;
     animation: popText 2s ease-in-out infinite;
     text-shadow: 0 0 20px #ff4d94;
     z-index: 10;
   }
 
   @keyframes popText {
-    0% { transform: scale(0.8); opacity: 0.4; }
-    50% { transform: scale(1.1); opacity: 1; }
-    100% { transform: scale(0.8); opacity: 0.4; }
+    0% { transform: scale(0.85); opacity: 0.6; }
+    50% { transform: scale(1.15); opacity: 1; }
+    100% { transform: scale(0.85); opacity: 0.6; }
   }
 
   /* TEDDY */
@@ -38,9 +38,10 @@
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 330px;
-    opacity: 0.3;
+    font-size: 340px;
+    opacity: 0.32;
     pointer-events: none;
+    filter: drop-shadow(0 0 20px #6d3b3b);
   }
 
   /* BOTTOM TEXT */
@@ -49,10 +50,17 @@
     bottom: 6%;
     width: 100%;
     text-align: center;
-    font-size: 36px;
-    color: #ffd6a5;
+    font-size: 38px;
+    color: #ffe0b2;
     letter-spacing: 2px;
-    text-shadow: 0 0 12px #ffb703;
+    animation: glow 3s ease-in-out infinite;
+    text-shadow: 0 0 15px #ffb703;
+  }
+
+  @keyframes glow {
+    0% { text-shadow: 0 0 10px #ffb703; }
+    50% { text-shadow: 0 0 25px #ffd166; }
+    100% { text-shadow: 0 0 10px #ffb703; }
   }
 
   /* HEARTS */
@@ -72,6 +80,19 @@
       opacity: 0;
     }
   }
+
+  /* GLITTER */
+  .sparkle {
+    position: absolute;
+    color: #fff3b0;
+    font-size: 14px;
+    animation: sparkle 2s linear forwards;
+  }
+
+  @keyframes sparkle {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(2); }
+  }
 </style>
 </head>
 
@@ -86,19 +107,24 @@ function createHeart() {
   const heart = document.createElement("div");
   heart.className = "heart";
   heart.innerHTML = "❤️";
-
   heart.style.left = Math.random() * window.innerWidth + "px";
   heart.style.bottom = "0px";
-
   document.body.appendChild(heart);
-
-  setTimeout(() => {
-    heart.remove();
-  }, 3000);
+  setTimeout(() => heart.remove(), 3000);
 }
 
-// Auto hearts
-setInterval(createHeart, 300);
+function createSparkle() {
+  const sparkle = document.createElement("div");
+  sparkle.className = "sparkle";
+  sparkle.innerHTML = "✨";
+  sparkle.style.left = Math.random() * window.innerWidth + "px";
+  sparkle.style.top = Math.random() * window.innerHeight + "px";
+  document.body.appendChild(sparkle);
+  setTimeout(() => sparkle.remove(), 2000);
+}
+
+setInterval(createHeart, 280);
+setInterval(createSparkle, 400);
 </script>
 
 </body>
