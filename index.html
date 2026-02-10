@@ -1,14 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Heart Popup</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Auto Heart Pop</title>
+
+<style>
+  body {
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background: #0b0b0b;
+  }
+
+  .heart {
+    position: absolute;
+    font-size: 28px;
+    animation: float 3s linear forwards;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-250px) scale(2);
+      opacity: 0;
+    }
+  }
+</style>
 </head>
+
 <body>
 
-<button onclick="createHeart()">❤️ Click Me</button>
+<script>
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
 
-<script src="script.js"></script>
+  heart.style.left = Math.random() * window.innerWidth + "px";
+  heart.style.bottom = "0px";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 3000);
+}
+
+// Auto hearts every 300 ms
+setInterval(createHeart, 300);
+</script>
+
 </body>
 </html>
