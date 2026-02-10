@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Auto Heart Pop</title>
+<title>Teddy Love</title>
 
 <style>
   body {
@@ -12,6 +12,18 @@
     background: #0b0b0b;
   }
 
+  /* BIG TEDDY BACKGROUND */
+  .teddy {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 300px;   /* BIG SIZE */
+    opacity: 0.25;      /* soft background look */
+    pointer-events: none;
+  }
+
+  /* HEART STYLE */
   .heart {
     position: absolute;
     font-size: 28px;
@@ -33,6 +45,9 @@
 
 <body>
 
+<!-- TEDDY -->
+<div class="teddy">🧸</div>
+
 <script>
 function createHeart() {
   const heart = document.createElement("div");
@@ -49,7 +64,7 @@ function createHeart() {
   }, 3000);
 }
 
-// Auto hearts every 300 ms
+// Auto heart pop
 setInterval(createHeart, 300);
 </script>
 
