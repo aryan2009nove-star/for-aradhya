@@ -9,21 +9,27 @@
     height: 100vh;
     margin: 0;
     overflow: hidden;
-    background: radial-gradient(#1a1a1a, #000);
-    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(#2b1b1b, #000);
+    font-family: 'Comic Sans MS', 'Segoe UI', cursive;
   }
 
-  /* TEXT */
-  .title {
+  /* POP-UP TEXT */
+  .popup {
     position: fixed;
-    top: 8%;
+    top: 12%;
     width: 100%;
     text-align: center;
-    font-size: 48px;
-    color: pink;
-    letter-spacing: 2px;
-    z-index: 5;
-    text-shadow: 0 0 15px red;
+    font-size: 52px;
+    color: #ff9ecf;
+    animation: popText 2s ease-in-out infinite;
+    text-shadow: 0 0 20px #ff4d94;
+    z-index: 10;
+  }
+
+  @keyframes popText {
+    0% { transform: scale(0.8); opacity: 0.4; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(0.8); opacity: 0.4; }
   }
 
   /* TEDDY */
@@ -32,9 +38,21 @@
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 320px;
-    opacity: 0.28;
+    font-size: 330px;
+    opacity: 0.3;
     pointer-events: none;
+  }
+
+  /* BOTTOM TEXT */
+  .bottom-text {
+    position: fixed;
+    bottom: 6%;
+    width: 100%;
+    text-align: center;
+    font-size: 36px;
+    color: #ffd6a5;
+    letter-spacing: 2px;
+    text-shadow: 0 0 12px #ffb703;
   }
 
   /* HEARTS */
@@ -59,8 +77,9 @@
 
 <body>
 
-<div class="title">For Aradhya ❤️</div>
+<div class="popup">For Aradhya ❤️</div>
 <div class="teddy">🧸</div>
+<div class="bottom-text">Happy Teddy Day Cutie 🧸💖</div>
 
 <script>
 function createHeart() {
@@ -78,8 +97,8 @@ function createHeart() {
   }, 3000);
 }
 
-// Auto heart pop
-setInterval(createHeart, 280);
+// Auto hearts
+setInterval(createHeart, 300);
 </script>
 
 </body>
