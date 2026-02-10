@@ -13,22 +13,30 @@
     font-family: 'Comic Sans MS', 'Segoe UI', cursive;
   }
 
-  /* START SCREEN */
+  /* CLICK TO START SCREEN */
   .start-screen {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.95);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 100;
-    color: pink;
-    font-size: 32px;
+    color: #ffb3d9;
+    font-size: 34px;
     cursor: pointer;
+    text-align: center;
     text-shadow: 0 0 20px hotpink;
   }
 
-  /* POP TEXT */
+  .start-screen span {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #ffd6e8;
+  }
+
+  /* TOP POP TEXT */
   .popup {
     position: fixed;
     top: 8%;
@@ -88,46 +96,62 @@
   }
 
   @keyframes float {
-    0% { transform: translateY(0) scale(1); opacity: 1; }
-    100% { transform: translateY(-260px) scale(2); opacity: 0; }
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-260px) scale(2);
+      opacity: 0;
+    }
   }
 </style>
 </head>
 
 <body>
 
-<!-- START SCREEN -->
-<div class="start-screen" onclick="startLove()">
-  💖 Tap to Start 💖
+<!-- CLICK TO START -->
+<div class="start-screen" onclick="startSite()">
+  💖 Click to Start 💖
+  <span>(Music & love inside)</span>
 </div>
 
 <div class="popup">For Aradhya ❤️</div>
 <div class="teddy">🧸</div>
-<img src="photo.jpg" class="photo">
+
+<!-- PHOTO -->
+<img src="photo.jpg" class="photo" alt="For Aradhya">
+
 <div class="bottom-text">Happy Teddy Day Cutie 🧸💖</div>
 
-<!-- MUSIC -->
+<!-- MP4 MUSIC -->
 <audio id="music" loop>
-  <source src="music.mp3" type="audio/mpeg">
+  <source src="music.mp4" type="audio/mp4">
 </audio>
 
 <script>
-function startLove() {
-  document.querySelector(".start-screen").style.display = "none";
-  document.getElementById("music").play();
+let heartInterval;
+
+function startSite() {
+  document.querySelector('.start-screen').style.display = 'none';
+
+  const music = document.getElementById('music');
+  music.volume = 0.7;
+  music.play();
+
+  heartInterval = setInterval(createHeart, 300);
 }
 
 function createHeart() {
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerHTML = "❤️";
-  heart.style.left = Math.random() * window.innerWidth + "px";
-  heart.style.bottom = "0px";
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.innerHTML = '❤️';
+  heart.style.left = Math.random() * window.innerWidth + 'px';
+  heart.style.bottom = '0px';
   document.body.appendChild(heart);
+
   setTimeout(() => heart.remove(), 3000);
 }
-
-setInterval(createHeart, 300);
 </script>
 
 </body>
