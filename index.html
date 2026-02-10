@@ -13,7 +13,22 @@
     font-family: 'Comic Sans MS', 'Segoe UI', cursive;
   }
 
-  /* TOP POP TEXT */
+  /* START SCREEN */
+  .start-screen {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    color: pink;
+    font-size: 32px;
+    cursor: pointer;
+    text-shadow: 0 0 20px hotpink;
+  }
+
+  /* POP TEXT */
   .popup {
     position: fixed;
     top: 8%;
@@ -51,14 +66,7 @@
     transform: translateY(-50%);
     width: 220px;
     border-radius: 20px;
-    box-shadow: 0 0 25px rgba(255, 182, 193, 0.8);
-    animation: photoGlow 3s ease-in-out infinite;
-  }
-
-  @keyframes photoGlow {
-    0% { box-shadow: 0 0 15px pink; }
-    50% { box-shadow: 0 0 35px hotpink; }
-    100% { box-shadow: 0 0 15px pink; }
+    box-shadow: 0 0 25px pink;
   }
 
   /* BOTTOM TEXT */
@@ -69,7 +77,6 @@
     text-align: center;
     font-size: 36px;
     color: #ffe0b2;
-    letter-spacing: 2px;
     text-shadow: 0 0 15px #ffb703;
   }
 
@@ -81,30 +88,35 @@
   }
 
   @keyframes float {
-    0% {
-      transform: translateY(0) scale(1);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(-260px) scale(2);
-      opacity: 0;
-    }
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-260px) scale(2); opacity: 0; }
   }
 </style>
 </head>
 
 <body>
 
+<!-- START SCREEN -->
+<div class="start-screen" onclick="startLove()">
+  💖 Tap to Start 💖
+</div>
+
 <div class="popup">For Aradhya ❤️</div>
-
 <div class="teddy">🧸</div>
-
-<!-- PHOTO (CHANGE NAME HERE) -->
-<img src="photo.jpg" class="photo" alt="For Aradhya">
-
+<img src="photo.jpg" class="photo">
 <div class="bottom-text">Happy Teddy Day Cutie 🧸💖</div>
 
+<!-- MUSIC -->
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
 <script>
+function startLove() {
+  document.querySelector(".start-screen").style.display = "none";
+  document.getElementById("music").play();
+}
+
 function createHeart() {
   const heart = document.createElement("div");
   heart.className = "heart";
