@@ -2,31 +2,45 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Teddy Love</title>
+<title>For Aradhya ❤️</title>
 
 <style>
   body {
     height: 100vh;
     margin: 0;
     overflow: hidden;
-    background: #0b0b0b;
+    background: radial-gradient(#1a1a1a, #000);
+    font-family: 'Segoe UI', sans-serif;
   }
 
-  /* BIG TEDDY BACKGROUND */
+  /* TEXT */
+  .title {
+    position: fixed;
+    top: 8%;
+    width: 100%;
+    text-align: center;
+    font-size: 48px;
+    color: pink;
+    letter-spacing: 2px;
+    z-index: 5;
+    text-shadow: 0 0 15px red;
+  }
+
+  /* TEDDY */
   .teddy {
     position: fixed;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 300px;   /* BIG SIZE */
-    opacity: 0.25;      /* soft background look */
+    font-size: 320px;
+    opacity: 0.28;
     pointer-events: none;
   }
 
-  /* HEART STYLE */
+  /* HEARTS */
   .heart {
     position: absolute;
-    font-size: 28px;
+    font-size: 26px;
     animation: float 3s linear forwards;
   }
 
@@ -36,7 +50,7 @@
       opacity: 1;
     }
     100% {
-      transform: translateY(-250px) scale(2);
+      transform: translateY(-260px) scale(2);
       opacity: 0;
     }
   }
@@ -45,7 +59,7 @@
 
 <body>
 
-<!-- TEDDY -->
+<div class="title">For Aradhya ❤️</div>
 <div class="teddy">🧸</div>
 
 <script>
@@ -65,7 +79,7 @@ function createHeart() {
 }
 
 // Auto heart pop
-setInterval(createHeart, 300);
+setInterval(createHeart, 280);
 </script>
 
 </body>
