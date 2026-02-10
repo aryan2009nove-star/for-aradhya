@@ -16,10 +16,10 @@
   /* TOP POP TEXT */
   .popup {
     position: fixed;
-    top: 10%;
+    top: 8%;
     width: 100%;
     text-align: center;
-    font-size: 54px;
+    font-size: 52px;
     color: #ffb3d9;
     animation: popText 2s ease-in-out infinite;
     text-shadow: 0 0 20px #ff4d94;
@@ -36,12 +36,29 @@
   .teddy {
     position: fixed;
     top: 55%;
-    left: 50%;
+    left: 35%;
     transform: translate(-50%, -50%);
-    font-size: 340px;
-    opacity: 0.32;
+    font-size: 320px;
+    opacity: 0.3;
     pointer-events: none;
-    filter: drop-shadow(0 0 20px #6d3b3b);
+  }
+
+  /* PHOTO */
+  .photo {
+    position: fixed;
+    top: 55%;
+    right: 12%;
+    transform: translateY(-50%);
+    width: 220px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(255, 182, 193, 0.8);
+    animation: photoGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes photoGlow {
+    0% { box-shadow: 0 0 15px pink; }
+    50% { box-shadow: 0 0 35px hotpink; }
+    100% { box-shadow: 0 0 15px pink; }
   }
 
   /* BOTTOM TEXT */
@@ -50,17 +67,10 @@
     bottom: 6%;
     width: 100%;
     text-align: center;
-    font-size: 38px;
+    font-size: 36px;
     color: #ffe0b2;
     letter-spacing: 2px;
-    animation: glow 3s ease-in-out infinite;
     text-shadow: 0 0 15px #ffb703;
-  }
-
-  @keyframes glow {
-    0% { text-shadow: 0 0 10px #ffb703; }
-    50% { text-shadow: 0 0 25px #ffd166; }
-    100% { text-shadow: 0 0 10px #ffb703; }
   }
 
   /* HEARTS */
@@ -80,26 +90,18 @@
       opacity: 0;
     }
   }
-
-  /* GLITTER */
-  .sparkle {
-    position: absolute;
-    color: #fff3b0;
-    font-size: 14px;
-    animation: sparkle 2s linear forwards;
-  }
-
-  @keyframes sparkle {
-    0% { opacity: 1; transform: scale(1); }
-    100% { opacity: 0; transform: scale(2); }
-  }
 </style>
 </head>
 
 <body>
 
 <div class="popup">For Aradhya ❤️</div>
+
 <div class="teddy">🧸</div>
+
+<!-- PHOTO (CHANGE NAME HERE) -->
+<img src="photo.jpg" class="photo" alt="For Aradhya">
+
 <div class="bottom-text">Happy Teddy Day Cutie 🧸💖</div>
 
 <script>
@@ -113,18 +115,7 @@ function createHeart() {
   setTimeout(() => heart.remove(), 3000);
 }
 
-function createSparkle() {
-  const sparkle = document.createElement("div");
-  sparkle.className = "sparkle";
-  sparkle.innerHTML = "✨";
-  sparkle.style.left = Math.random() * window.innerWidth + "px";
-  sparkle.style.top = Math.random() * window.innerHeight + "px";
-  document.body.appendChild(sparkle);
-  setTimeout(() => sparkle.remove(), 2000);
-}
-
-setInterval(createHeart, 280);
-setInterval(createSparkle, 400);
+setInterval(createHeart, 300);
 </script>
 
 </body>
